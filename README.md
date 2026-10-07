@@ -6,7 +6,7 @@ Welcome! This is the source code for my personal website and blog, written entir
 
 - Main Site: <https://nathanpenny.fun>
 - Blog: <https://blog.nathanpenny.fun>
-- GitHub Pages Backup: <https://nathanpenny520.github.io/nathanpenny.fun>
+- GitHub Pages Backup: <https://pan-nie.github.io/nathanpenny.fun>
 
 ### 💬 Get in Touch
 

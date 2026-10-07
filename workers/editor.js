@@ -1,5 +1,5 @@
 // Markdown editor backend for the 写作台 tab on the /admin page.
-// Publishes posts/<slug>.md to GitHub (nathanpenny520/nathanpenny.fun, branch
+// Publishes posts/<slug>.md to GitHub (pan-nie/nathanpenny.fun, branch
 // main) via the Contents API; the gen-posts workflow then regenerates the
 // static pages, so the site itself never changes shape. No database — the
 // repository stays the single source of truth.
@@ -8,7 +8,7 @@
 
 import { verifyAccess, accessDenied } from "./access.js";
 
-const GITHUB_OWNER = "nathanpenny520";
+const GITHUB_OWNER = "pan-nie";
 const GITHUB_REPO = "nathanpenny.fun";
 const GITHUB_BRANCH = "main";
 const CONTENTS_API = "https://api.github.com/repos/" + GITHUB_OWNER + "/" + GITHUB_REPO + "/contents";

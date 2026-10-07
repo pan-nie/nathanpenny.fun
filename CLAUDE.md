@@ -375,7 +375,7 @@ the gitignored `workers/.dev.vars` with `ADMIN_BYPASS=1` — never deploy with i
 - **CORS.** `/comments` and `/api/analytics/hit` each carry their own copy of
   the same four-origin allowlist, matched exactly (schemes included):
   `https://nathanpenny.fun`, `https://blog.nathanpenny.fun`,
-  `https://nathanpenny520.github.io`, `http://localhost:8080`. Any other origin
+  `https://pan-nie.github.io`, `http://localhost:8080`. Any other origin
   gets no `Access-Control-Allow-Origin` header at all. Only `/api/ai/*` uses
   `*` (bearer auth, no cookies).
 - **CSRF line on admin JSON endpoints.** The JSON-body endpoints

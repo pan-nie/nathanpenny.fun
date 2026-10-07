@@ -16,6 +16,6 @@ ANALYTICS_SALT=dev-salt-not-for-production
 # in wrangler.jsonc.
 # CF_AI_TOKEN=...
 
-# Optional: GitHub fine-grained PAT (repo nathanpenny520/nathanpenny.fun,
+# Optional: GitHub fine-grained PAT (repo pan-nie/nathanpenny.fun,
 # Contents: Read and write) for local testing of the 写作台 editor API.
 # GITHUB_TOKEN=github_pat_...

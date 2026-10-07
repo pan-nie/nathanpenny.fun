@@ -94,7 +94,7 @@ function classifyOs(ua) {
 // --- referrer classification --------------------------------------------------
 
 // Hosts that mean "arrived from within this site" — treated like direct.
-const INTERNAL_HOST_RE = /(^|\.)(nathanpenny\.fun|nathanpenny520\.github\.io|localhost)$/;
+const INTERNAL_HOST_RE = /(^|\.)(nathanpenny\.fun|pan-nie\.github\.io|localhost)$/;
 
 const SEARCH_HOST_RE = /(^|\.)(google\.|bing\.|baidu\.|duckduckgo\.|sogou\.|so\.com|sm\.cn|yandex\.|yahoo\.|ecosia\.|startpage\.|search\.brave\.)/i;
 const SOCIAL_HOST_RE = /(^|\.)(weibo\.|twitter\.|x\.com|t\.co|facebook\.|fb\.com|instagram\.|linkedin\.|reddit\.|pinterest\.|tumblr\.|bilibili\.|b23\.tv|zhihu\.|xiaohongshu\.|xhslink\.|douyin\.|tiktok\.|youtube\.|youtu\.be|v2ex\.|discord\.|medium\.|juejin\.)/i;
@@ -175,7 +175,7 @@ export async function handleHit(request, env, ctx, helpers) {
     const allowed = [
       "https://nathanpenny.fun",
       "https://blog.nathanpenny.fun",
-      "https://nathanpenny520.github.io",
+      "https://pan-nie.github.io",
       "http://localhost:8080"
     ];
     if (!allowed.includes(origin)) return silent204();

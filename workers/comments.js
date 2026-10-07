@@ -47,7 +47,7 @@ const TURNSTILE_ACTION = "comment";
 const TURNSTILE_HOSTNAMES = new Set([
   "nathanpenny.fun",
   "blog.nathanpenny.fun",
-  "nathanpenny520.github.io"
+  "pan-nie.github.io"
 ]);
 
 // Reject oversized payloads early so the database cannot be flooded.
@@ -744,7 +744,7 @@ export default {
     const allowedOrigins = [
       "https://nathanpenny.fun",
       "https://blog.nathanpenny.fun",
-      "https://nathanpenny520.github.io",
+      "https://pan-nie.github.io",
       "http://localhost:8080"
     ];
 

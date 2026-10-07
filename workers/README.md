@@ -286,7 +286,7 @@ itself never changes shape and no database is involved.
 - Deleting a post commits the deletion; CI then prunes the stale
   `blog/<slug>/` directory (the generator removes dirs without a matching
   post).
-- Setup: create a GitHub fine-grained PAT scoped to `nathanpenny520/nathanpenny.fun`
+- Setup: create a GitHub fine-grained PAT scoped to `pan-nie/nathanpenny.fun`
   only, with **Contents: Read and write**, then
   `npx wrangler secret put GITHUB_TOKEN`. The token never reaches the page or
   logs — GitHub error messages (capped at 200 chars) are the only upstream
@@ -574,7 +574,7 @@ Verification rules in `verifyTurnstile()`:
 - `success === true` from `https://challenges.cloudflare.com/turnstile/v0/siteverify`
 - token `action` must equal `comment` (set via `data-action` on the widget)
 - token `hostname` must be one of `nathanpenny.fun`, `blog.nathanpenny.fun`,
-  `nathanpenny520.github.io` — localhost is deliberately NOT allowed, so local
+  `pan-nie.github.io` — localhost is deliberately NOT allowed, so local
   end-to-end testing of the comment post will get a 403. To test the full flow
   locally, temporarily swap in Cloudflare's official test keys
   (sitekey `1x00000000000000000000AA`, secret `1x0000000000000000000000000000000AA`),
@@ -586,7 +586,7 @@ comments cannot be posted until the secret is configured.
 ## Notes
 
 - CORS: `/comments` only echoes allowlisted origins (`nathanpenny.fun`,
-  `blog.nathanpenny.fun`, `nathanpenny520.github.io`, `localhost:8080`);
+  `blog.nathanpenny.fun`, `pan-nie.github.io`, `localhost:8080`);
   `/api/ai` allows `*` (bearer-key auth). The email field is stored but never
   returned by `GET /comments`.
 - The rate limiter fails open on D1 trouble (comments keep working if the
