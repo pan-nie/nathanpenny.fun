@@ -1,0 +1,24 @@
+# Hostname guard: site.config.json is the single source of truth, and this fails
+# the run when a file still carries a retired host or an abandoned apex domain.
+# It also fails when site.config.json was edited without running the sync, which
+# is the one mistake the rewrite itself cannot detect (the site would keep
+# serving the old domain while the config claims the new one).
+#
+# Cheap and dependency-free: `node tools/domain-check.mjs` only reads files.
+
+name: Domain check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  domain-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check hostnames against site.config.json
+        run: node tools/domain-check.mjs

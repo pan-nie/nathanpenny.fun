@@ -2310,7 +2310,7 @@ function initFooter() {
   // copyright line so that line keeps its credits/legal meaning.
   const subsites = document.createElement('p');
   subsites.className = 'footer-subsites';
-  subsites.appendChild(extLink('Tsinghua', 'https://tsinghua.nathanpenny.fun'));
+  subsites.appendChild(extLink('Tsinghua', 'https://thu.whizzzest.com'));
 
   const line = document.createElement('p');
   line.append(

@@ -2782,7 +2782,7 @@ footer p {
   font-size: 14px;
 }
 
-/* Sub-site links (their own hostnames, e.g. tsinghua.nathanpenny.fun) sit in a
+/* Sub-site links (their own hostnames, e.g. thu.whizzzest.com) sit in a
    row above the copyright line as pills. The band is dark in both palettes, so
    these use the nav text colour with a translucent border instead of the
    surface/border variables. Add one <a> per sub-site in initFooter(). */

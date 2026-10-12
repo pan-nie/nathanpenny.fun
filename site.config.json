@@ -1,0 +1,68 @@
+{
+  "_comment": [
+    "站点主机名与邮箱的唯一事实来源。改这里，然后跑 `node tools/domain-sync.mjs`。",
+    "迁移到任何新域名 = 改本文件 + 跑一次 sync：全仓文本文件里的域名由脚本改写，不用手工翻。",
+    "`hostRewrites` / `emailRewrites` 是「旧值 → 新值」的历史表，sync 会把它应用到所有文本文件（含注释与文档），",
+    "`tools/domain-check.mjs` 在 CI 里拒绝任何文件残留左侧旧值 —— 这张表只增不删，是「以后不许再出现旧域名」的守卫依据。",
+    "sync 会**自动**把这次推导出的替换对追加进这两张表（守卫不会因为迁移完成而失忆），换主域时也会把旧裸域追加进 `legacyApexDomains`。",
+    "`applied` 是脚本写的（不是给人改的）：它记住上一次真正写进文件的值，sync 靠它自动推导出这次的替换对。",
+    "改域名时只改 `hosts` / `emails`，**不要**手工往 `applied` 里抄。"
+  ],
+  "_hosts": [
+    "本站在用的全部主机名，按用途命名。值是裸主机名（不带协议、不带路径）。",
+    "`site` 是主域，必须与 `siteHost` 一致；`blog` / `storage` / `workers` 是本站自己的子域；",
+    "`tsinghua` 是页脚那个外部子站入口（另一个项目，域名独立迁移），留着是为了它换域名时也只改这一处。"
+  ],
+  "siteHost": "nathanpenny.fun",
+  "hosts": {
+    "site": "nathanpenny.fun",
+    "blog": "blog.nathanpenny.fun",
+    "storage": "storage.nathanpenny.fun",
+    "workers": "workers.nathanpenny.fun",
+    "tsinghua": "thu.whizzzest.com"
+  },
+  "_emails": [
+    "对外暴露的三个地址。sync 会先把它们整体「寄存」起来再改写主机名，",
+    "所以域名迁移时邮箱域名不会被动跟着变 —— 邮箱要不要换，由这里的值单独决定。"
+  ],
+  "emails": {
+    "hello": "hello@nathanpenny.fun",
+    "notify": "notify@nathanpenny.fun",
+    "noreply": "noreply@nathanpenny.fun"
+  },
+  "_applied": [
+    "脚本写入：上一次真正落到文件里的值。sync 用它和上面的当前值对比，自动生成替换对。",
+    "两边一致 = 仓库与配置同步；不一致 = 你改了配置还没跑 sync（domain-check 会报错）。"
+  ],
+  "applied": {
+    "hosts": {
+      "site": "nathanpenny.fun",
+      "blog": "blog.nathanpenny.fun",
+      "storage": "storage.nathanpenny.fun",
+      "workers": "workers.nathanpenny.fun",
+      "tsinghua": "thu.whizzzest.com"
+    },
+    "emails": {
+      "hello": "hello@nathanpenny.fun",
+      "notify": "notify@nathanpenny.fun",
+      "noreply": "noreply@nathanpenny.fun"
+    }
+  },
+  "_hostRewrites": [
+    "旧主机名 → 新主机名 的历史表，sync 每次都会把它应用到全仓。手工往里加只用于两类情况：",
+    "① applied 里没有记过的历史写法（例如早已废弃、从未被 sync 见过的子域）；",
+    "② 值换成「主机 + 路径」的形态（TsinghuaSurvive 的媒体出口就是 `thu.whizzzest.com/media`）。",
+    "其余情况不用手写：sync 推导出的替换对会自动追加到这里，`applied` 只是「上次写进文件的值」的指针。"
+  ],
+  "hostRewrites": {
+    "tsinghua.nathanpenny.fun": "thu.whizzzest.com"
+  },
+  "emailRewrites": {},
+  "_legacyApexDomains": [
+    "已经整体废弃的裸域名。只匹配完整主机名时，`*.旧域`、裸域、zone 名这些写法会溜过守卫，靠它拦住。",
+    "现在是空的：nathanpenny.fun 仍是主域。换主域时 sync 会自动把旧裸域追加进来 ——",
+    "如果旧域其实还活着、还要继续用，就把这一行删掉，否则守卫会一直报它。",
+    "显式列出而不是从当前域自动推导后缀，避免把 foo.co.uk 变成 co.uk 造成误报。"
+  ],
+  "legacyApexDomains": []
+}
